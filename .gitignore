@@ -28,3 +28,4 @@ assets/
 .vscode
 .env
 application-test.properties
+yasn-app-secrets.yaml
