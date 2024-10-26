@@ -4,10 +4,14 @@ import java.util.HashSet;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.yasn.base.TestBase;
 import org.yasn.data.entities.user.User;
 import org.yasn.data.entities.user.UserProfile;
@@ -16,6 +20,7 @@ import org.yasn.data.models.service.user.UserServiceModel;
 import org.yasn.repository.user.UserProfileRepository;
 import static org.yasn.testConstants.UserAndProfileConstants.*;
 
+@ActiveProfiles("test")
 public class UserProfileServiceImplTest extends TestBase {
 
   User userExpected;
@@ -81,7 +86,7 @@ public class UserProfileServiceImplTest extends TestBase {
   }
 
   @Test
-  void userProfileService_ShouldReturnCorrectProfile_OnGivenUsername() {
+  public void userProfileService_ShouldReturnCorrectProfile_OnGivenUsername() {
     UserProfileServiceModel expected = this.userProfileServiceModelExpected;
     UserProfileServiceModel actual =
         this.userProfileServiceMock.findUserProfileByUsername(USERNAME_EXPECTED);
@@ -96,7 +101,7 @@ public class UserProfileServiceImplTest extends TestBase {
   }
 
   @Test
-  void userProfileService_ShouldReturnCorrectProfile_OnGivenId() {
+  public void userProfileService_ShouldReturnCorrectProfile_OnGivenId() {
     UserProfileServiceModel expected = this.userProfileServiceModelExpected;
     UserProfileServiceModel actual =
         this.userProfileServiceMock.findUserProfileById(TEST_PROFILE_UUID_EXPECTED);

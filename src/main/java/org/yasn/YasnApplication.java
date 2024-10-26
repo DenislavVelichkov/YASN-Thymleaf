@@ -10,7 +10,7 @@ public class YasnApplication {
     public static void main(String[] args) {
         // Load variables from .env file
         Dotenv dotenv = Dotenv.configure()
-                .directory("src/")
+                .directory("./")
                 .ignoreIfMalformed()
                 .ignoreIfMissing()
                 .load();
@@ -19,7 +19,6 @@ public class YasnApplication {
         dotenv.entries().forEach(entry -> {
             System.setProperty(entry.getKey(), entry.getValue());
         });
-
         SpringApplication.run(YasnApplication.class, args);
     }
 }

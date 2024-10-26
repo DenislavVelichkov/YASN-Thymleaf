@@ -26,4 +26,5 @@ target/
 assets/
 .idea
 .vscode
-src/.env
+.env
+application-test.properties
