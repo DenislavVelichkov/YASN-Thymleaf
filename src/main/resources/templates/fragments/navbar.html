@@ -124,7 +124,7 @@
                                                 Accept
                                             </a>
                                             <span style="font-style: italic; margin-left: 1em"
-                                                  th:text="${time.calcTimeAgo(notification.createdOn)}"></span>
+                                                  th:text="${notification != null ? time.calcTimeAgo(notification.createdOn) : ''}"></span>
                                         </div>
                                     </th:block>
                                 </div>

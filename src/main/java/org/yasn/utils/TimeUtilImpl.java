@@ -11,6 +11,7 @@ public class TimeUtilImpl implements TimeUtil {
 
   @Override
   public String calcTimeAgo(Timestamp eventTime) {
+    if (eventTime == null) { return String.valueOf(' '); }
 
     long timeAgo = new Date().getTime() - eventTime.getTime();
 

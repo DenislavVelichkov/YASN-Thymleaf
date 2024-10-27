@@ -3,8 +3,7 @@ package org.yasn.config;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
-import nz.net.ultraq.thymeleaf.LayoutDialect;
-import nz.net.ultraq.thymeleaf.decorators.strategies.GroupingRespectLayoutTitleStrategy;
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
@@ -91,6 +90,6 @@ public class ApplicationBeanConfiguration {
   //  Required in order layout to work properly
   @Bean
   public LayoutDialect layoutDialect() {
-    return new LayoutDialect(new GroupingRespectLayoutTitleStrategy(), true);
+    return new LayoutDialect();
   }
 }

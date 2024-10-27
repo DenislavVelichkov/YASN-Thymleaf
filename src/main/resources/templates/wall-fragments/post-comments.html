@@ -40,7 +40,7 @@
         </div>
         <div class="post-meta-info">
 
-            <span th:text="${time.calcTimeAgo(comment.createdOn)}"></span>
+            <span th:text="${comment != null ? time.calcTimeAgo(comment.createdOn) : ''}"></span>
             <div class="wall-post-comment-content-container">
                 <p>[(${comment.commentContent})]</p>
             </div>

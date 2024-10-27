@@ -103,21 +103,14 @@ public class UserProfileController extends BaseController {
 
   @GetMapping("/guest/{profileId}")
   @PageTitle("View Profile as Guest")
-  public ModelAndView guestProfile(
-      ModelAndView modelAndView,
-      @PathVariable String profileId) {
-
-    modelAndView.addObject(
-        "gallery", super.getProfileGalleryByOwnerId(profileId));
-    modelAndView.addObject(
-        "userProfileView", super.getUserProfileViewById(profileId));
-    modelAndView.addObject(
-        "activeUserDetails", super.getActiveUserDetails());
-    modelAndView.addObject(
-        "allProfilePosts", this.wallService.findAllByOwnerId(profileId));
+  public ModelAndView guestProfile(ModelAndView modelAndView, @PathVariable String profileId) {
+    modelAndView.addObject("gallery", super.getProfileGalleryByOwnerId(profileId));
+    modelAndView.addObject("userProfileView", super.getUserProfileViewById(profileId));
+    modelAndView.addObject("activeUserDetails", super.getActiveUserDetails());
+    modelAndView.addObject("allProfilePosts", this.wallService.findAllByOwnerId(profileId));
     modelAndView.addObject("postComment", new PostCommentBindingModel());
 
-    return super.view("guest-profile", modelAndView);
+    return new ModelAndView("guest-profile", modelAndView.getModel());
   }
 
   @PostMapping("/guest/comment")

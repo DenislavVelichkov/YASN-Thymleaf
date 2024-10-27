@@ -44,7 +44,7 @@
                 </div>
                 <!--/*@thymesVar id="post" type="org.yasn.data.models.view.WallPostViewModel"*/-->
                 <!--/*@thymesVar id="time" type="org.yasn.utils.TimeUtilImpl"*/-->
-                <span th:text="${time.calcTimeAgo(post.createdOn)}"></span>
+                <span th:text="${post != null ? time.calcTimeAgo(post.createdOn) : ''}"></span>
                 <span th:if="${post.postPrivacy.name() == 'PUBLIC'}">
                     <i class="fa fa-users"></i>
                 </span>
