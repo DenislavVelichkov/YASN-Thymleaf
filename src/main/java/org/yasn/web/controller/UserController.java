@@ -59,6 +59,7 @@ public class UserController extends BaseController {
 
     this.userService.registerUser(userServiceModel);
 
-    return super.redirect("user/login");
+    // Use absolute path to avoid double /user prefix
+    return super.redirect("/user/login");
   }
 }

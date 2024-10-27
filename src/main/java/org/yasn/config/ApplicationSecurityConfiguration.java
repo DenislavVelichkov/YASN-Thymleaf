@@ -18,7 +18,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
   @Override
   public void configure(WebSecurity web) throws Exception {
 
-    web.ignoring().antMatchers("/css/**", "/js/**");
+    web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/public/resources/**");
   }
 
   @Override
@@ -29,17 +29,12 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
         .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         .and()
         .authorizeRequests()
-        .antMatchers(
-            "/js/**",
-            "/js/script/**",
-            "/images/**", "/css/**",
-            "/public/resources/**").permitAll()
-        .antMatchers("/", "/user/register", "/user/login").anonymous()
+        .antMatchers("/css/**", "/js/**", "/images/**", "/public/resources/**").permitAll()
+        .antMatchers("/", "/user/register", "/user/login").permitAll()
         .anyRequest().authenticated()
         .and()
         .formLogin()
-        .loginPage("/user/login")
-        .loginPage("/user/register")
+        .loginPage("/user/login") // Set only one login page
         .usernameParameter("email")
         .passwordParameter("password")
         .defaultSuccessUrl("/home")

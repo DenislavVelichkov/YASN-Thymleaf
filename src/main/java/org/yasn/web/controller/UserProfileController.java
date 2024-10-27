@@ -98,7 +98,7 @@ public class UserProfileController extends BaseController {
 
     this.wallService.createPost(wallPostServiceModel, activeUser.getName());
 
-    return super.redirect("profile/timeline/" + profileId);
+    return super.redirect("/profile/timeline/" + profileId);
   }
 
   @GetMapping("/guest/{profileId}")
@@ -131,7 +131,7 @@ public class UserProfileController extends BaseController {
     this.commentValidator.validate(postComment, bindingResult);
 
     if (bindingResult.hasErrors()) {
-      return super.redirect("profile/guest/" + profileId);
+      return super.redirect("/profile/guest/" + profileId);
     }
 
     PostCommentServiceModel postCommentServiceModel =
@@ -146,7 +146,7 @@ public class UserProfileController extends BaseController {
 
     this.postCommentService.postComment(postCommentServiceModel, activeUser, postId);
 
-    return super.redirect("profile/guest/" + profileId);
+    return super.redirect("/profile/guest/" + profileId);
   }
 
   @PostMapping("/timeline/comment")
@@ -179,7 +179,7 @@ public class UserProfileController extends BaseController {
 
     this.postCommentService.postComment(postCommentServiceModel, activeUser, postId);
 
-    return super.redirect("profile/timeline/" + profileId);
+    return super.redirect("/profile/timeline/" + profileId);
   }
 
   @GetMapping("/edit/{id}")

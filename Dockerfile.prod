@@ -7,7 +7,7 @@ WORKDIR /app
 COPY ./target/yasn-1.0.0-SNAPSHOT.jar /app/
 COPY ./src/main/resources/.env /app/
 # Add MySQL APT repository and install MySQL client
-RUN apt-get update && apt-get install -y mariadb-client && rm -rf /var/lib/apt/lists/*
+RUN #apt-get update && apt-get install -y mariadb-client && rm -rf /var/lib/apt/lists/*
 
 
 EXPOSE 8000
