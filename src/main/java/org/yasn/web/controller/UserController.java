@@ -26,7 +26,7 @@ public class UserController extends BaseController {
 
   @GetMapping("/login")
   public ModelAndView userLogin() {
-    return super.view("/user/login");
+    return super.view("user/login");
   }
 
   @GetMapping("/register")
@@ -34,7 +34,7 @@ public class UserController extends BaseController {
   public ModelAndView index(
       @ModelAttribute(name = "registerModel") UserRegisterBindingModel registerModel) {
 
-    return super.view("/user/register");
+    return super.view("user/register");
   }
 
   @PostMapping("/register")
@@ -59,6 +59,6 @@ public class UserController extends BaseController {
 
     this.userService.registerUser(userServiceModel);
 
-    return super.redirect("/user/login");
+    return super.redirect("user/login");
   }
 }

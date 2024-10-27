@@ -15,7 +15,8 @@
                         <small class="h5 text-muted">Dive in social networking!</small>
                     </div>
                     <!--/*@thymesVar id="registerModel" type="org.yasn.data.models.binding.UserRegisterBindingModel"*/-->
-                    <form th:action="@{/user/register}" th:method="post" th:object="${registerModel}">
+                    <form th:action="@{/user/register}" th:method="post"
+                          th:object="${registerModel}">
 
                         <div class="row">
                             <div class="col-6">
